@@ -15,16 +15,14 @@ st.sidebar.title("Francis Raymond Edouard Sagna")
 #image_path = st.image('C:\\Users\\lenovo\\Downloads\\.jpeg')
 
 # Fonction pour établir la connexion à la base de données MySQL
-# Fonction pour établir la connexion à la base de données MySQL
 def etablir_connexion():
-    try:
-        conn = st.experimental_connection('mysql', options={'host': 'localhost', 'user': 'root', 'password': '', 'database': 'sonatel'})
-        st.success("Connexion à la base de données réussie !")
-        return conn
-    except Exception as e:
-        st.error(f"Erreur lors de la connexion à la base de données : {e}")
-        return None
-
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="sonatel"
+    )
+    return conn
 
 
 
